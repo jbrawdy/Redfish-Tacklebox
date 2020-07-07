@@ -15,6 +15,7 @@ Brief : This script uses the redfish_utilities module to dump system inventory
 import argparse
 import redfish
 import redfish_utilities
+import write_to_excel
 
 import json
 
@@ -35,6 +36,7 @@ try:
     # Get and print the system inventory
     inventory = redfish_utilities.get_system_inventory( redfish_obj )
     redfish_utilities.print_system_inventory( inventory, details = args.details, skip_absent = args.noabsent )
+    write_to_excel.write_system_inventory( inventory, details = args.details, skip_absent = args.noabsent )
 finally:
     # Log out
     redfish_obj.logout()
