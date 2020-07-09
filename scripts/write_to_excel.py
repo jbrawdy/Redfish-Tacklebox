@@ -27,7 +27,7 @@ def write_system_inventory( inventory_list, details = False, skip_absent = False
     row = 0
 
     # Adds header to Excel file
-    header = ["NAME", "MANUFACTURER", "MODEL", "SKU", "PART NUMBER", "SERIAL NUMBER", "ASSET TAG" ]
+    header = ["NAME", "DESCRIPTION", "MANUFACTURER", "MODEL", "SKU", "PART NUMBER", "SERIAL NUMBER", "ASSET TAG" ]
     for column_title in header:
         worksheet.write(row, column, column_title, cell_header_format)
         column += 1
@@ -45,7 +45,7 @@ def write_system_inventory( inventory_list, details = False, skip_absent = False
                 column = 0
                 worksheet.write(row, column, inv_type, cell_name_format) 
                 column += 1
-                detail_list = [ "Manufacturer", "Model", "SKU", "PartNumber", "SerialNumber", "AssetTag" ]
+                detail_list = [ "Description", "Manufacturer", "Model", "SKU", "PartNumber", "SerialNumber", "AssetTag" ]
                 for detail in detail_list:
                     worksheet.write(row, column, item[detail] ) 
                     column += 1
